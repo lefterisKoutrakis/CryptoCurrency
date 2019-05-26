@@ -1,7 +1,6 @@
 package gr.kouto.cryptocurrency.DetailCrypto;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +24,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.listedCryptoDetais = listedCryptoDetais;
     }
 
-    protected class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    protected class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView symbolName, rate, fullName;
         ImageView imageView;
@@ -37,14 +36,6 @@ public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             fullName = view.findViewById(R.id.cryptoFullName);
             imageView.setVisibility(View.GONE);
             fullName.setVisibility(View.GONE);
-            view.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(activity, CryptoDetailActivity.class);
-            intent.putExtra("crypto", (CryptoCurrency)listedCryptoDetais.get(getAdapterPosition()));
-            activity.startActivity(intent);
         }
     }
 
